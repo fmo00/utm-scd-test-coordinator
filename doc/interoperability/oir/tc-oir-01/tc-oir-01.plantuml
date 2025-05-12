@@ -1,0 +1,34 @@
+@startuml "tc-oir-01"
+
+participant "Coordinator" as dir
+participant "USS Testing instance" as uss #11E4B0
+participant "D S S " as dss
+
+
+
+[o-[#312D2D]> dir: Starts test
+activate dir
+autonumber 0 1 "<b>[000]"
+
+== Injection ==
+
+dir -> uss : PUT /flight_plans/{flight_plan_id}
+activate uss
+note right: Invalid request body JSON 
+
+|||
+
+== Assertions ==
+uss -[#1146E4]> dir: Responds { 400 Bad Request }
+deactivate uss
+dir -> dir: Validates response
+dir -> dss: GET /oir/{flight_plan_id}
+activate dss
+dss -[#1146E4]> dir: Responds { 404 Not Found }
+deactivate dss
+dir -> dir: Validates response
+
+[o<-dir: Ends test
+deactivate dir
+
+@enduml
