@@ -1,0 +1,14 @@
+from common.constant.authentication.token_request_query_params import (
+    QUERY_PARAM_API_KEY_NAME,
+    QUERY_PARAM_INTENDED_AUDIENCE_NAME,
+    QUERY_PARAM_SCOPE_NAME,
+    QUERY_PARAM_SUB_NAME,
+)
+
+
+__all__ = [
+    QUERY_PARAM_API_KEY_NAME,
+    QUERY_PARAM_INTENDED_AUDIENCE_NAME,
+    QUERY_PARAM_SCOPE_NAME,
+    QUERY_PARAM_SUB_NAME,
+]

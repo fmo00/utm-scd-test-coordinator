@@ -1,0 +1,21 @@
+from . import AuthenticationClientAdapter, UssClientAdapter
+from . import is_response_unauthorized
+from . import ENTITY_ID
+
+
+class TestClassAutenticationInvalidAudience:
+    uss_client: UssClientAdapter
+
+    def __test_setup__(self) -> None:
+        bearer_token = AuthenticationClientAdapter().get_bearer_token(
+            "utm.strategic_coordination",
+            "eurocontrol",
+            "speedbird",
+        )
+        self.uss_client = UssClientAdapter(bearer_token)
+
+    def test_execution(self) -> None:
+        self.__test_setup__()
+
+        ussp_response = self.uss_client.get_oir_by_id(ENTITY_ID)
+        assert is_response_unauthorized(ussp_response)
