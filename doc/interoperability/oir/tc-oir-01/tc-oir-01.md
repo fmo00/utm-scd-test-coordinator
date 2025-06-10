@@ -11,9 +11,7 @@ plans and handles OIR queries per ASTM F3548.
 
 -   **ASTM F3548-21**: Section 5.3.2.4 (Operational
     Intent Creation, Modification, and Deletion) -
-    **OPIN0020:** The total number of vertices across
-    all volumes comprising an operational intent shall
-    be limited to OiMaxVertices
+    **OPIN0020**.
 
 ### **5. Scenario/Setup**
 
